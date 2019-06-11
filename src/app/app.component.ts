@@ -1,16 +1,17 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import {  PhotoDataSource } from './photo-data-source';
 import { PhotoService } from './photo.service';
+import { Photo } from './photo';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  title = 'Album List - CDK Virtual Scroll';
-  ds = new PhotoDataSource(this.photoService);
 
-  constructor(private photoService: PhotoService) { }
+  photos: Array<Photo> = [];
+
+  constructor(private photoService: PhotoService) {
+    photoService.getPhotos().subscribe(photos => this.photos = photos);
+  }
 }

@@ -1,13 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    {{ title }}
+    Album List - CDK Virtual Scroll
   </h1>
 </div>
 <div class="container">
   <mat-card>
-    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-      <div *cdkVirtualFor="let item of ds" class="example-item">
+    <cdk-virtual-scroll-viewport itemSize="160" class="photo-viewport">
+      <div *cdkVirtualFor="let item of photos" class="photo-item">
         <div class="img-item">
           <img src="{{item.thumbnailUrl}}" alt="{{item.title}}" />
         </div>
